@@ -1,6 +1,7 @@
 
 # Script must be run from the same folder as sd-config
 # Otherwise change parameter ConfigPath when launching
+if ($IsWindows -eq $true){
 Param(
     [string]$ConfigPath = ".\sd-config",
     [string]$FolderPath = "C:\Users\$env:UserName\Downloads\",
@@ -27,3 +28,5 @@ ForEach($Extension in $Config) {
 if(!(Get-Content $LogName)){
     Remove-Item $LogName
 }
+}
+else {Write-Output 'bonk'}
